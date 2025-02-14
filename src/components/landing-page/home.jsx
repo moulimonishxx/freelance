@@ -42,7 +42,6 @@ const App = () => {
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             <Navbar.Brand
-  href="#"
   style={{
     marginLeft: "3cm",
     color: "black",
@@ -227,7 +226,7 @@ const App = () => {
     </motion.div>
   </motion.div>
 
-  {/* Mobile Adjustments */}
+  {/**  Mobile Adjustments */}
   <style>
     {`
       @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap');
@@ -513,7 +512,7 @@ const App = () => {
         Customers expect performance, convenience, and availability from our platforms, even during peak activity.
       </p>
       <a
-        href="#"
+        
         style={{
           display: 'inline-block',
           marginTop: '15px',
@@ -549,7 +548,7 @@ const App = () => {
         Manage multiple security and networking services from a single, unified solution.
       </p>
       <a
-        href="#"
+    
         style={{
           display: 'inline-block',
           marginTop: '15px',
