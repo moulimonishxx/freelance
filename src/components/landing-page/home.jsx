@@ -636,21 +636,21 @@ const App = () => {
     <div className="pricing-card">
       <h3>Personalized Web Development</h3>
       <p>Custom websites tailored to your business needs, ensuring a seamless user experience and a strong online presence.</p>
-      <a href="https://www.linkedin.com/company/brookbytes-in/" target="_blank">Contact Us</a>
+      <a href="https://www.linkedin.com/company/brookbytes-in/" target="_blank" rel="noopener noreferrer">Contact Us</a>
     </div>
 
     {/* AI-Powered Chatbots */}
     <div className="pricing-card">
       <h3>AI-Powered Chatbots</h3>
       <p>Revolutionize customer interactions with AI-driven chatbots that provide instant support and improve user engagement.</p>
-      <a href="https://www.linkedin.com/company/brookbytes-in/" target="_blank">Contact Us</a>
+      <a href="https://www.linkedin.com/company/brookbytes-in/" target="_blank" rel="noopener noreferrer">Contact Us</a>
     </div>
 
     {/* Content Creation & Typing Services */}
     <div className="pricing-card">
       <h3>Content Creation & Typing Services</h3>
       <p>Professional content writing and efficient typing services to help businesses communicate effectively and streamline documentation needs.</p>
-      <a href="https://www.linkedin.com/company/brookbytes-in/" target="_blank">Contact Us</a>
+      <a href="https://www.linkedin.com/company/brookbytes-in/" target="_blank" rel="noopener noreferrer" >Contact Us</a>
     </div>
   </div>
 </section>
