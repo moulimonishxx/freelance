@@ -196,7 +196,7 @@ const App = () => {
       transition={{ duration: 1, ease: "easeOut", delay: 1 }}
     >
      
-     <a href="https://www.linkedin.com/company/brookbytes-in/" target="_blank" rel="noopener noreferrer">
+     <a href="https://www.linkedin.com/company/brookbytes-in/"  rel="noopener noreferrer">
   <button
     style={{
       padding: "12px 40px",
@@ -664,21 +664,21 @@ const App = () => {
     <div className="pricing-card">
       <h3>Personalized Web Development</h3>
       <p>Custom websites tailored to your business needs, ensuring a seamless user experience and a strong online presence.</p>
-      <a href="https://www.linkedin.com/company/brookbytes-in/" target="_blank">Contact Us</a>
+      <a href="https://www.linkedin.com/company/brookbytes-in/" >Contact Us</a>
     </div>
 
     {/* AI-Powered Chatbots */}
     <div className="pricing-card">
       <h3>AI-Powered Chatbots</h3>
       <p>Revolutionize customer interactions with AI-driven chatbots that provide instant support and improve user engagement.</p>
-      <a href="https://www.linkedin.com/company/brookbytes-in/" target="_blank">Contact Us</a>
+      <a href="https://www.linkedin.com/company/brookbytes-in/" >Contact Us</a>
     </div>
 
     {/* Content Creation & Typing Services */}
     <div className="pricing-card">
       <h3>Content Creation & Typing Services</h3>
       <p>Professional content writing and efficient typing services to help businesses communicate effectively and streamline documentation needs.</p>
-      <a href="https://www.linkedin.com/company/brookbytes-in/" target="_blank">Contact Us</a>
+      <a href="https://www.linkedin.com/company/brookbytes-in/" >Contact Us</a>
     </div>
   </div>
 </section>
@@ -824,7 +824,7 @@ const App = () => {
       onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
       onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
     >
-      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+      <a href="https://facebook.com" rel="noopener noreferrer">
         <i
           className="fab fa-facebook-f"
           style={{ fontSize: '40px', color: '#1877f2', marginBottom: '15px' }}
@@ -849,7 +849,7 @@ const App = () => {
       onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
       onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
     >
-      <a href="https://www.instagram.com/brookbytes.in/" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.instagram.com/brookbytes.in/" rel="noopener noreferrer">
         <i
           className="fab fa-instagram"
           style={{ fontSize: '40px', color: '#1877f2', marginBottom: '15px' }}
@@ -874,7 +874,7 @@ const App = () => {
       onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
       onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
     >
-      <a href="https://www.linkedin.com/company/brookbytes-in/" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.linkedin.com/company/brookbytes-in/"  rel="noopener noreferrer">
         <i
           className="fab fa-linkedin-in"
           style={{ fontSize: '40px', color: '#1877f2', marginBottom: '15px' }}
@@ -991,7 +991,6 @@ id="our-services"
   <div style={{ marginBottom: "20px" }}>
     <a
       href="https://www.linkedin.com/company/brookbytes-in/"
-      target="_blank"
       rel="noopener noreferrer"
       style={{
         color: "#fff",
@@ -1004,7 +1003,6 @@ id="our-services"
     </a>
     <a
       href="https://www.instagram.com/brookbytes.in/"
-      target="_blank"
       rel="noopener noreferrer"
       style={{
         color: "#fff",
@@ -1017,7 +1015,6 @@ id="our-services"
     </a>
     <a
       href="https://wa.me/yourphonenumber"
-      target="_blank"
       rel="noopener noreferrer"
       style={{
         color: "#fff",
@@ -1031,7 +1028,7 @@ id="our-services"
     {/* X Twitter (Formerly Twitter) Icon */}
     <a
       href="https://twitter.com"
-      target="_blank"
+    
       rel="noopener noreferrer"
       style={{
         color: "#fff",
