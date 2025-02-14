@@ -16,9 +16,6 @@ const App = () => {
   const handleMouseLeave = () => setHoveredIndex(null);
 
   // Placeholder function for button click
-  const handleButtonClick = () => {
-    alert("Form submitted!"); // Replace with actual submission logic
-  };
 
   return (
     <div>
