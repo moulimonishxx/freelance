@@ -938,7 +938,7 @@ id="our-services"
 >
   <div style={{ marginBottom: "20px" }}>
     <h3 style={{ fontSize: "1.8em", fontWeight: "600", marginBottom: "10px" }}>
-      Your Company Name
+      BrookBytes
     </h3>
     <p style={{ fontSize: "1em", color: "#bbb" }}>
       Innovative solutions for a connected world.
