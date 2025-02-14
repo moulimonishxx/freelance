@@ -6,7 +6,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import aboutUsImage from '../../images/about-us-image.jpg';
 import logo from '../../images/logo.svg';
 
-import landPageImage from "../../images/land-page.jpg";
 
 const App = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
