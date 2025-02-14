@@ -22,105 +22,100 @@ const App = () => {
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         rel="stylesheet"
       />
-
-      {/* Animated Navbar */}
-      <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        <Navbar
-          expand="lg"
-          fixed="top"
-          style={{
-            backgroundColor: "white", height:"90px",
-            fontFamily: "Roboto, sans-serif",
-            boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-          }}
-        >
-          <div className="container-fluid">
-            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-            <Navbar.Brand
-  style={{
-    marginLeft: "3cm",
-    color: "black",
-    fontWeight: "700",
-    fontSize: "1.5rem",
-    display: "flex",
-    alignItems: "center",
-  }}
+{/* Animated Navbar */}
+<motion.div
+  initial={{ opacity: 0, y: -50 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
 >
-  <img
-    src={logo}
-    alt="Logo"
-    style={{ height: "90px", width: "auto", marginRight: "0px" }}
-  />
-</Navbar.Brand>
+  <Navbar
+    expand="lg"
+    fixed="top"
+    style={{
+      backgroundColor: "white",
+      height: "90px",
+      fontFamily: "Roboto, sans-serif",
+      boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+    }}
+  >
+    <div className="container-fluid">
+      <Navbar.Brand
+        href="/"
+        style={{
+          marginLeft: "3cm",
+          color: "black",
+          fontWeight: "700",
+          fontSize: "1.5rem",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          <img
+            src={logo}
+            alt="Logo"
+            style={{ height: "90px", width: "auto", marginRight: "0px" }}
+          />
+        </motion.div>
+      </Navbar.Brand>
 
+      <Navbar.Toggle aria-controls="offcanvasNavbar" />
+      <Navbar.Offcanvas id="offcanvasNavbar" placement="end">
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title id="offcanvasNavbarLabel">Menu</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <Nav className="ms-auto gap-4">
+            {["Home", "About Us", "What We Do", "Our Plans", "Our Services", "Contact Us"].map((item, index) => (
+              <motion.div
+                key={index}
+                onMouseEnter={() => handleHover(index)}
+                onMouseLeave={handleMouseLeave}
+                style={{ position: "relative" }}
+              >
+                <Nav.Link
+                  href={`#${item.toLowerCase().replace(/ /g, "-")}`}
+                  style={{
+                    color: "black",
+                    fontFamily: "Roboto, sans-serif",
+                    fontSize: "1rem",
+                    padding: "10px",
+                    position: "relative",
+                    display: "inline-block",
+                  }}
+                >
+                  {item}
+                </Nav.Link>
+                {hoveredIndex === index && (
+                  <motion.div
+                    style={{
+                      position: "absolute",
+                      bottom: "0",
+                      left: "0",
+                      width: "100%",
+                      height: "4px",
+                      backgroundColor: "#007bff",
+                    }}
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{
+                      duration: 0.3,
+                      type: "spring",
+                      stiffness: 300,
+                    }}
+                  />
+                )}
+              </motion.div>
+            ))}
+          </Nav>
+        </Offcanvas.Body>
+      </Navbar.Offcanvas>
+    </div>
+  </Navbar>
 </motion.div>
-            </motion.div>
-            <Navbar.Toggle aria-controls="offcanvasNavbar" />
-            <Navbar.Offcanvas
-              id="offcanvasNavbar"
-              aria-labelledby="offcanvasNavbarLabel"
-              placement="end"
-            >
-              <Offcanvas.Header closeButton>
-                <Offcanvas.Title id="offcanvasNavbarLabel">Menu</Offcanvas.Title>
-              </Offcanvas.Header>
-              <Offcanvas.Body>
-                <Nav className="ms-auto gap-4">
-                  {["Home", "About Us", "What We Do", "Our Plans", "Our Services", "Contact Us"].map((item, index) => (
-                    <motion.div
-                      key={index}
-                      onHoverStart={() => handleHover(index)}
-                      onHoverEnd={handleMouseLeave}
-                      style={{ position: "relative" }}
-                    >
-                      <Nav.Link
-                        href={`#${item.toLowerCase().replace(/ /g, "-")}`}
-                        style={{
-                          color: "black",
-                          fontFamily: "Roboto, sans-serif",
-                          fontSize: "1rem",
-                          padding: "10px",
-                          position: "relative",
-                          display: "inline-block",
-                        }}
-                      >
-                        {item}
-                      </Nav.Link>
-                      {hoveredIndex === index && (
-                        <motion.div
-                          style={{
-                            position: "absolute",
-                            bottom: "0",
-                            left: "0",
-                            width: "100%",
-                            height: "4px",
-                            backgroundColor: "#007bff",
-                          }}
-                          initial={{ scaleX: 0 }}
-                          animate={{ scaleX: 1 }}
-                          transition={{
-                            duration: 0.3,
-                            type: "spring",
-                            stiffness: 300,
-                          }}
-                        />
-                      )}
-                    </motion.div>
-                  ))}
-                </Nav>
-              </Offcanvas.Body>
-            </Navbar.Offcanvas>
-          </div>
-        </Navbar>
-      </motion.div>
 
-      {/* Main Section with Landing Text */}
-      <section
+{/* Main Section with Landing Text */}
+<section
   id="home"
   style={{
     minHeight: "100vh",
@@ -194,57 +189,35 @@ const App = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: "easeOut", delay: 1 }}
     >
-     
-     <a href="https://www.linkedin.com/company/brookbytes-in/"  rel="noopener noreferrer">
-  <button
-    style={{
-      padding: "12px 40px",
-      fontSize: "clamp(12px, 4vw, 16px)",
-      color: "#000",
-      backgroundColor: "#A0FF62",
-      border: "none",
-    
-      cursor: "pointer",
-      fontWeight: "bold",
-      marginTop: "20px",
-      transition: "all 0.3s ease-in-out",
-    }}
-    onMouseOver={(e) => {
-      e.target.style.backgroundColor = "#8DF84D";
-      e.target.style.transform = "scale(1.05)"; // Scale up effect
-    }}
-    onMouseOut={(e) => {
-      e.target.style.backgroundColor = "#A0FF62";
-      e.target.style.transform = "scale(1)"; // Scale back to normal
-    }}
-  >
-    Connect with Us!
-  </button>
-</a>
-
-
+      <a href="https://www.linkedin.com/company/brookbytes-in/" target="_blank" rel="noopener noreferrer">
+        <button
+          style={{
+            padding: "12px 40px",
+            fontSize: "clamp(12px, 4vw, 16px)",
+            color: "#000",
+            backgroundColor: "#A0FF62",
+            border: "none",
+            cursor: "pointer",
+            fontWeight: "bold",
+            marginTop: "20px",
+            transition: "all 0.3s ease-in-out",
+          }}
+          onMouseOver={(e) => {
+            e.target.style.backgroundColor = "#8DF84D";
+            e.target.style.transform = "scale(1.05)";
+          }}
+          onMouseOut={(e) => {
+            e.target.style.backgroundColor = "#A0FF62";
+            e.target.style.transform = "scale(1)";
+          }}
+        >
+          Connect with Us!
+        </button>
+      </a>
     </motion.div>
   </motion.div>
-
-  {/**  Mobile Adjustments */}
-  <style>
-    {`
-      @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap');
-
-      @media (max-width: 768px) {
-        #home {
-          padding: 40px 5vw;
-          text-align: left;
-          
-        }
-      }
-    `}
-  </style>
 </section>
 
-
-
- 
       {/* About Us Section */}
       <section
         id="about-us"
@@ -512,7 +485,7 @@ const App = () => {
         Customers expect performance, convenience, and availability from our platforms, even during peak activity.
       </p>
       <a
-        
+        href="/"
         style={{
           display: 'inline-block',
           marginTop: '15px',
@@ -548,7 +521,7 @@ const App = () => {
         Manage multiple security and networking services from a single, unified solution.
       </p>
       <a
-    
+        href="/"
         style={{
           display: 'inline-block',
           marginTop: '15px',
@@ -584,7 +557,7 @@ const App = () => {
         Replacing legacy systems with modern cloud-based solutions drives innovation and efficiency.
       </p>
       <a
-        href="#"
+        href="/"
         style={{
           display: 'inline-block',
           marginTop: '15px',
@@ -663,21 +636,21 @@ const App = () => {
     <div className="pricing-card">
       <h3>Personalized Web Development</h3>
       <p>Custom websites tailored to your business needs, ensuring a seamless user experience and a strong online presence.</p>
-      <a href="https://www.linkedin.com/company/brookbytes-in/" >Contact Us</a>
+      <a href="https://www.linkedin.com/company/brookbytes-in/" target="_blank">Contact Us</a>
     </div>
 
     {/* AI-Powered Chatbots */}
     <div className="pricing-card">
       <h3>AI-Powered Chatbots</h3>
       <p>Revolutionize customer interactions with AI-driven chatbots that provide instant support and improve user engagement.</p>
-      <a href="https://www.linkedin.com/company/brookbytes-in/" >Contact Us</a>
+      <a href="https://www.linkedin.com/company/brookbytes-in/" target="_blank">Contact Us</a>
     </div>
 
     {/* Content Creation & Typing Services */}
     <div className="pricing-card">
       <h3>Content Creation & Typing Services</h3>
       <p>Professional content writing and efficient typing services to help businesses communicate effectively and streamline documentation needs.</p>
-      <a href="https://www.linkedin.com/company/brookbytes-in/" >Contact Us</a>
+      <a href="https://www.linkedin.com/company/brookbytes-in/" target="_blank">Contact Us</a>
     </div>
   </div>
 </section>
@@ -823,7 +796,7 @@ const App = () => {
       onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
       onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
     >
-      <a href="https://facebook.com" rel="noopener noreferrer">
+      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
         <i
           className="fab fa-facebook-f"
           style={{ fontSize: '40px', color: '#1877f2', marginBottom: '15px' }}
@@ -848,7 +821,7 @@ const App = () => {
       onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
       onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
     >
-      <a href="https://www.instagram.com/brookbytes.in/" rel="noopener noreferrer">
+      <a href="https://www.instagram.com/brookbytes.in/" target="_blank" rel="noopener noreferrer">
         <i
           className="fab fa-instagram"
           style={{ fontSize: '40px', color: '#1877f2', marginBottom: '15px' }}
@@ -873,7 +846,7 @@ const App = () => {
       onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
       onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
     >
-      <a href="https://www.linkedin.com/company/brookbytes-in/"  rel="noopener noreferrer">
+      <a href="https://www.linkedin.com/company/brookbytes-in/" target="_blank" rel="noopener noreferrer">
         <i
           className="fab fa-linkedin-in"
           style={{ fontSize: '40px', color: '#1877f2', marginBottom: '15px' }}
@@ -990,6 +963,7 @@ id="our-services"
   <div style={{ marginBottom: "20px" }}>
     <a
       href="https://www.linkedin.com/company/brookbytes-in/"
+      target="_blank"
       rel="noopener noreferrer"
       style={{
         color: "#fff",
@@ -1002,6 +976,7 @@ id="our-services"
     </a>
     <a
       href="https://www.instagram.com/brookbytes.in/"
+      target="_blank"
       rel="noopener noreferrer"
       style={{
         color: "#fff",
@@ -1014,6 +989,7 @@ id="our-services"
     </a>
     <a
       href="https://wa.me/yourphonenumber"
+      target="_blank"
       rel="noopener noreferrer"
       style={{
         color: "#fff",
@@ -1027,7 +1003,7 @@ id="our-services"
     {/* X Twitter (Formerly Twitter) Icon */}
     <a
       href="https://twitter.com"
-    
+      target="_blank"
       rel="noopener noreferrer"
       style={{
         color: "#fff",
