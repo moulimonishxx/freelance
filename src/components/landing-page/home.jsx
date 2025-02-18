@@ -1126,7 +1126,7 @@ id="our-services"
   </div>
 
   <p style={{ fontSize: "1em", color: "#bbb" }}>
-    &copy; {new Date().getFullYear()} Your Company Name. All Rights Reserved.
+    &copy; {new Date().getFullYear()} Brook Bytes . All Rights Reserved.
   </p>
 </footer>
 
