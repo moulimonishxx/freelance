@@ -5,6 +5,8 @@ import { Link } from "react-router-dom"; // Import for routing
 import "bootstrap/dist/css/bootstrap.min.css";
 import aboutUsImage from '../../images/about-us-image.jpg';
 import logo from '../../images/logo.svg';
+import { FaCode, FaDatabase, FaRobot, FaPencilAlt, FaChartLine } from "react-icons/fa";
+
 
 
 const App = () => {
@@ -33,16 +35,19 @@ const App = () => {
     fixed="top"
     style={{
       backgroundColor: "white",
-      height: "90px",
+      opacity:'90%',
+      height: "60px",
       fontFamily: "Roboto, sans-serif",
       boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
     }}
   >
     <div className="container-fluid">
       <Navbar.Brand
+        id="nav-brand"
         href="/"
         style={{
           marginLeft: "3cm",
+          marginTop: window.innerWidth <= 768 ? '-12px' : '20px', // Adjust margin-top for mobile view
           color: "black",
           fontWeight: "700",
           fontSize: "1.5rem",
@@ -54,12 +59,18 @@ const App = () => {
           <img
             src={logo}
             alt="Logo"
-            style={{ height: "90px", width: "auto", marginRight: "0px" }}
+            style={{ height: "90px", width: "auto", marginRight: "1px" }}
           />
         </motion.div>
       </Navbar.Brand>
 
-      <Navbar.Toggle aria-controls="offcanvasNavbar" />
+      <Navbar.Toggle aria-controls="offcanvasNavbar"
+      style={{
+          marginTop: window.innerWidth <= 768 ? '-26px' : '10px', // Adjust margin-top for hamburger menu on mobile view
+        }}
+ />
+      
+      
       <Navbar.Offcanvas id="offcanvasNavbar" placement="end">
         <Offcanvas.Header closeButton>
           <Offcanvas.Title id="offcanvasNavbarLabel">Menu</Offcanvas.Title>
@@ -94,7 +105,7 @@ const App = () => {
                       left: "0",
                       width: "100%",
                       height: "4px",
-                      backgroundColor: "#007bff",
+                      backgroundColor: "#A0FF62",
                     }}
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
@@ -114,110 +125,198 @@ const App = () => {
   </Navbar>
 </motion.div>
 
-{/* Main Section with Landing Text */}
 <section
   id="home"
   style={{
     minHeight: "100vh",
-    background: "linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4))",
+    backgroundColor: "#000", // Changed background to black
     padding: "50px 8vw",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     fontFamily: "'Mono Sans', sans-serif",
     textAlign: "left",
-    color: "#fff",
+    color: "#fff", // Changed text color to white
+    boxSizing: "border-box",
   }}
 >
   <motion.div
-    style={{ maxWidth: "90%" }}
+  style={{ maxWidth: "90%" }}
+  initial={{ opacity: 0, x: -50 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 1, ease: "easeOut" }}
+>
+  <motion.p
+    style={{
+      fontSize: "clamp(1.1rem, 3vw, 1.2rem)",
+      fontWeight: "bold",
+      color: "#A0FF62",
+      textTransform: "uppercase",
+      fontFamily: "'Roboto', sans-serif", // Changed font to Roboto
+      marginBottom: "15px", // Added spacing
+    }}
+    initial={{ opacity: 0, y: -10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
+  >
+    BrookBytes - Let’s build a smarter future with AI and custom web.
+  </motion.p>
+
+  <motion.h3
+    style={{
+      fontWeight: "bold",
+      fontSize: "clamp(2rem, 4vw, 2.7rem)",
+      lineHeight: "1.4",
+      fontFamily: "'Roboto', sans-serif", // Applied same font for consistency
+      marginBottom: "20px", // Added margin for spacing
+    }}
     initial={{ opacity: 0, x: -50 }}
     animate={{ opacity: 1, x: 0 }}
-    transition={{ duration: 1, ease: "easeOut" }}
+    transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
   >
-    {/* Small Title */}
-    <motion.p
-      style={{
-        fontSize: "clamp(1rem, 3vw, 1.3rem)",
-        fontWeight: "bold",
-        color: "#A0FF62",
-        textTransform: "uppercase",
-        fontFamily: "'Cinzel Decorative', cursive",
-      }}
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-    >
-      BrookBytes - Innovate. Automate. Elevate.
-    </motion.p>
+    Transforming Businesses with Web Solutions & AI Chatbots
+  </motion.h3>
 
-    {/* Main Heading */}
-    <motion.h3
-      style={{
-        fontWeight: "bold",
-        fontSize: "clamp(1.8rem, 6vw, 3rem)",
-        lineHeight: "1.3",
-      }}
-      initial={{ opacity: 0, x: -50 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-    >
-      Transforming Businesses with Web Solutions & AI Chatbots
-    </motion.h3>
+  <motion.p
+    style={{
+      fontSize: "clamp(1rem, 2.5vw, 1rem)",
+      lineHeight: "1.5",
+      opacity: 0.85,
+      fontFamily: "'Roboto', sans-serif", // Consistent font family
+    }}
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
+  >
+    We specialize in <strong>custom web solutions</strong> and <strong>AI-powered chatbots</strong> to elevate businesses. Our services also include <strong>content creation</strong> and <strong>typing services</strong>, empowering your digital presence.
+  </motion.p>
 
-    {/* Description */}
-    <motion.p
-      style={{
-        marginTop: "15px",
-        fontSize: "clamp(0.9rem, 2.5vw, 1.2rem)",
-        lineHeight: "1.6",
-        opacity: 0.8,
-      }}
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
-    >
-      At BrookBytes, we craft <strong>custom web solutions</strong> and <strong>AI-powered chatbots</strong> 
-      to streamline operations and enhance user engagement. Our expertise extends to 
-      <strong>content creation</strong> and <strong>typing services</strong>, ensuring businesses stay ahead 
-      in the digital landscape.
-    </motion.p>
-
-    {/* CTA Button */}
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, ease: "easeOut", delay: 1 }}
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1, ease: "easeOut", delay: 1 }}
+>
+  <a href="https://www.linkedin.com/company/brookbytes-in/" target="_blank" rel="noopener noreferrer">
+    <button
+      style={{
+        padding: "12px 40px",
+        fontSize: "clamp(12px, 4vw, 16px)",
+        color: "#A0FF62", // Text color will be the border color
+        backgroundColor: "transparent", // Transparent background
+        border: "2px solid #A0FF62", // Border color will be the same as the text color
+        cursor: "pointer",
+        fontWeight: "bold",
+        marginTop: "20px",
+        transition: "all 0.3s ease-in-out",
+      }}
+      onMouseOver={(e) => {
+        e.target.style.backgroundColor = "#A0FF62"; // Set background color on hover
+        e.target.style.color = "#000"; // Change text color to black
+        e.target.style.border = "2px solid #A0FF62"; // Keep border color intact
+        e.target.style.transform = "scale(1.05)"; // Scale effect
+      }}
+      onMouseOut={(e) => {
+        e.target.style.backgroundColor = "transparent"; // Reset background color
+        e.target.style.color = "#A0FF62"; // Reset text color
+        e.target.style.border = "2px solid #A0FF62"; // Reset border color
+        e.target.style.transform = "scale(1)"; // Reset scale effect
+      }}
     >
-      <a href="https://www.linkedin.com/company/brookbytes-in/" target="_blank" rel="noopener noreferrer">
-        <button
-          style={{
-            padding: "12px 40px",
-            fontSize: "clamp(12px, 4vw, 16px)",
-            color: "#000",
-            backgroundColor: "#A0FF62",
-            border: "none",
-            cursor: "pointer",
-            fontWeight: "bold",
-            marginTop: "20px",
-            transition: "all 0.3s ease-in-out",
-          }}
-          onMouseOver={(e) => {
-            e.target.style.backgroundColor = "#8DF84D";
-            e.target.style.transform = "scale(1.05)";
-          }}
-          onMouseOut={(e) => {
-            e.target.style.backgroundColor = "#A0FF62";
-            e.target.style.transform = "scale(1)";
-          }}
-        >
-          Connect with Us!
-        </button>
-      </a>
-    </motion.div>
+      Connect with Us!
+    </button>
+  </a>
+</motion.div>
+
   </motion.div>
+
+  {/* Services Section */}
+  <motion.div
+    style={{
+      display: "flex",
+      flexWrap: "nowrap", // Ensures icons stay in a single row
+      justifyContent: "center",
+      gap: "20px", // Adjusted gap for spacing between icons
+      marginTop: "40px",
+      textAlign: "center",
+      width: "100%",
+      overflowX: "auto", // Allows horizontal scrolling if needed on small screens
+      paddingBottom: "10px",
+    }}
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 1, delay: 1.2 }}
+  >
+    {[
+      
+      
+      { icon: <FaRobot />, text: "AI Chatbots" },
+      { icon: <FaPencilAlt />, text: "Content" },
+      { icon: <FaChartLine />, text: "SEO" },
+      { icon: <FaCode />, text: "Frontend" },
+      { icon: <FaDatabase />, text: "Backend" },
+      
+    ].map((service, index) => (
+      <motion.div
+        key={index}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          minWidth: "120px", // Increased min-width for desktop visibility
+        }}
+        whileHover={{ scale: 1.1 }}
+      >
+        <div className="service-icon" style={{ background: "none" }}>
+          {service.icon}
+        </div>
+        <p style={{ marginTop: "10px", fontSize: "1rem" }}>{service.text}</p>
+      </motion.div>
+    ))}
+  </motion.div>
+
+  {/* Responsive Styles */}
+  <style>
+    {`
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
+      }
+      .service-icon {
+        font-size: 2rem; /* Default size for mobile */
+        color:rgb(46, 230, 0);
+      }
+      @media (min-width: 1024px) {
+        .service-icon {
+          font-size: 3rem; /* Increased icon size for desktop */
+        }
+        #home div[style*="flex"] {
+          justify-content: center; /* Keeps icons centered on larger screens */
+        }
+        .service-item {
+          min-width: 160px; /* Increased space for each item on desktop */
+        }
+      }
+      @media (max-width: 768px) {
+        #home {
+          padding: 40px 5vw;
+        }
+
+        .service-icon {
+          font-size: 1.5rem !important; /* Reduced icon size on mobile */
+        }
+        #home div[style*="flex"] {
+          justify-content: flex-start; /* Aligns icons properly on smaller screens */
+          overflow-x: auto;
+          white-space: nowrap;
+        }
+      }
+    `}
+  </style>
 </section>
 
+    
       {/* About Us Section */}
       <section
         id="about-us"
@@ -236,7 +335,7 @@ const App = () => {
             paddingLeft: '20px',
             paddingRight: '20px',
             maxWidth: '800px',
-            borderLeft: '5px solid #007bff',
+            borderLeft: '5px solid #A0FF62',
             color: '#333',
           }}
         >
@@ -433,7 +532,7 @@ const App = () => {
         onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
         onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
       >
-        <i className={service.icon} style={{ fontSize: "40px", color: "#007bff", marginBottom: "15px" }}></i>
+        <i className={service.icon} style={{ fontSize: "40px", color: "#A0FF62", marginBottom: "15px" }}></i>
         <h4 style={{ fontWeight: "700", marginBottom: "10px", color: "#222" }}>{service.title}</h4>
         <p style={{ color: "#555" }}>{service.desc}</p>
       </div>
@@ -477,7 +576,7 @@ const App = () => {
       }}
       className="benefit-card"
     >
-      <i className="fas fa-user-check" style={{ fontSize: '3em', color: '#ff9100', marginBottom: '15px' }}></i>
+      <i className="fas fa-user-check" style={{ fontSize: '3em', color: '#A0FF62', marginBottom: '15px' }}></i>
       <h4 style={{ fontWeight: '700', fontSize: '1.5em', marginBottom: '10px' }}>
         Provide a Superior Online Experience
       </h4>
@@ -625,6 +724,8 @@ const App = () => {
   `}</style>
 </section>
 
+
+
 <section id="our-plans" className="pricing">
   <div className="section-header">
     <h2>Choose the Right Plan for Your Needs</h2>
@@ -669,7 +770,8 @@ const App = () => {
 
   .section-header h2 {
     font-weight: 700;
-    font-size: 2.5em;
+    font-size: 2.8em;
+    color: #333;
   }
 
   .section-header p {
@@ -688,38 +790,45 @@ const App = () => {
   .pricing-card {
     background-color: #fff;
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .pricing-card h3 {
-    font-size: 1.8em;
-    font-weight: 600;
+    font-size: 2em;
+    font-weight: 700;
     color: #333;
     margin-bottom: 20px;
   }
 
   .pricing-card p {
-    font-size: 1.4em;
-    font-weight: 600;
+    font-size: 1.2em;
+    font-weight: 400;
     margin-bottom: 20px;
+    color: #555;
   }
 
   .pricing-card a {
     display: inline-block;
     text-decoration: none;
-    color: #007bff;
+    color: #fff;
     font-weight: 600;
-    padding: 10px 20px;
-    background-color: #f1f1f1;
-    border-radius: 5px;
+    padding: 12px 30px;
+    background-color: #A0FF62;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .pricing-card a:hover {
+    background-color: #8DF84D;
+    transform: scale(1.05);
   }
 
   .pricing-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-15px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   }
 
   @media screen and (max-width: 600px) {
@@ -728,7 +837,7 @@ const App = () => {
     }
 
     .section-header h2 {
-      font-size: 2em;
+      font-size: 2.2em;
     }
 
     .section-header p {
@@ -741,16 +850,16 @@ const App = () => {
     }
 
     .pricing-card h3 {
-      font-size: 1.6em;
+      font-size: 1.8em;
     }
 
     .pricing-card p {
-      font-size: 1.2em;
+      font-size: 1.1em;
     }
 
     .pricing-card a {
       font-size: 0.9em;
-      padding: 8px 15px;
+      padding: 10px 20px;
     }
   }
 `}</style>
@@ -799,7 +908,7 @@ const App = () => {
       <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
         <i
           className="fab fa-facebook-f"
-          style={{ fontSize: '40px', color: '#1877f2', marginBottom: '15px' }}
+          style={{ fontSize: '40px', color: '#A0FF62', marginBottom: '15px' }}
         ></i>
       </a>
       <h4 style={{ fontWeight: '700', marginBottom: '10px' }}>Facebook</h4>
@@ -824,7 +933,7 @@ const App = () => {
       <a href="https://www.instagram.com/brookbytes.in/" target="_blank" rel="noopener noreferrer">
         <i
           className="fab fa-instagram"
-          style={{ fontSize: '40px', color: '#1877f2', marginBottom: '15px' }}
+          style={{ fontSize: '40px', color: '#A0FF62', marginBottom: '15px' }}
         ></i>
       </a>
       <h4 style={{ fontWeight: '700', marginBottom: '10px' }}>Instagram</h4>
@@ -849,7 +958,7 @@ const App = () => {
       <a href="https://www.linkedin.com/company/brookbytes-in/" target="_blank" rel="noopener noreferrer">
         <i
           className="fab fa-linkedin-in"
-          style={{ fontSize: '40px', color: '#1877f2', marginBottom: '15px' }}
+          style={{ fontSize: '40px', color: '#A0FF62', marginBottom: '15px' }}
         ></i>
       </a>
       <h4 style={{ fontWeight: '700', marginBottom: '10px' }}>LinkedIn</h4>
@@ -874,7 +983,7 @@ const App = () => {
       <a href="mailto:example@example.com">
         <i
           className="fas fa-envelope"
-          style={{ fontSize: '40px', color: '#1877f2', marginBottom: '15px' }}
+          style={{ fontSize: '40px', color: '#A0FF62', marginBottom: '15px' }}
         ></i>
       </a>
       <h4 style={{ fontWeight: '700', marginBottom: '10px' }}>Email</h4>
