@@ -21,7 +21,7 @@ const App = () => {
   return (
     <div>
       <link
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css "
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         rel="stylesheet"
       />
 {/* Animated Navbar */}
@@ -34,7 +34,7 @@ const App = () => {
     expand="lg"
     fixed="top"
     style={{
-      backgroundColor: "white",
+      backgroundColor: "#FFFFFF",
       opacity:'90%',
       height: "60px",
       fontFamily: "Roboto, sans-serif",
@@ -321,10 +321,16 @@ const App = () => {
       <section
         id="about-us"
         style={{
-          padding: '60px 20px',
-          backgroundColor: '#f9f9f9',
-          textAlign: 'center',
-          fontFamily: 'Roboto, sans-serif',
+          minHeight: "50vh",
+          backgroundColor: "#000", // Changed background to black
+          padding: "50px 8vw",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          fontFamily: "'Mono Sans', sans-serif",
+          textAlign: "left",
+          color: "#fff", // Changed text color to white
+          boxSizing: "border-box",
         }}
       >
         <blockquote
@@ -336,7 +342,7 @@ const App = () => {
             paddingRight: '20px',
             maxWidth: '800px',
             borderLeft: '5px solid #A0FF62',
-            color: '#333',
+            color: '#FFFFFF',
           }}
         >
           "The best way to predict the future is to create it. Take the leap, and
@@ -350,110 +356,118 @@ const App = () => {
       
 
       {/* about section start here*/}
-<section
-  id="about-us"
-  style={{
-    padding: '60px 20px',
-    fontFamily: 'Roboto, sans-serif',
+
+{/* Right Content Section */}
+<div
+    style={{
+    flex: 1,
     display: 'flex',
-    alignItems: 'center', // Vertically align items
-    justifyContent: 'space-between', // Space between image and text
-    flexDirection: 'row', // Default layout
-  }}
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center', // Center content horizontally
+    textAlign: 'center', // Center text for better readability
+    padding: '20px',
+    maxWidth: '1700px',
+    margin: '0 auto', // Center content
+    backgroundColor:'black'
+    }}
 >
-  {/* Left Image Section */}
-  <div
+  <h1 style={{ fontWeight: '700', color: '#A0FF62' }}>About Us</h1>
+
+  <p style={{ color: '#FFFFFF', fontSize: '22px', paddingTop: '20px' }}>
+    We specialize in innovative web solutions, AI, and custom software
+    development. Our team works closely with clients to deliver tailored
+    solutions that meet your unique business needs and drive growth.
+  </p>
+
+  <h4 style={{ fontWeight: '700', color: '#A0FF62', paddingTop: '40px' }}>
+    What Sets Us Apart
+  </h4>
+
+  {[
+    { title: "Interest-Driven", desc: "We are fueled by genuine curiosity and a deep interest in the fields we work in, always striving to stay ahead of trends and innovations." },
+    { title: "Collaborative Spirit", desc: "Our team is united by the ability to collaborate effectively, fostering an environment where ideas are shared, and learning is constant." },
+    { title: "Problem Solvers", desc: "Whether it's building intuitive websites, developing AI-based solutions, or automating tasks, we focus on delivering practical solutions that simplify complex challenges." },
+    { title: "Commitment to Quality", desc: "We aim for excellence in every project, ensuring that our solutions not only meet the requirements but also provide long-term value to clients." },
+    { title: "Adaptability", desc: "With diverse skills and a commitment to learning, we quickly adapt to new tools, frameworks, and technologies, delivering cutting-edge solutions." }
+  ].map((item, index) => (
+    <div key={index} style={{ maxWidth: '800px', textAlign: 'left', paddingTop: '30px' }}>
+      <h5 style={{ color: 'white', display: 'flex', alignItems: 'center' }}>
+        <i className="fas fa-fire" style={{ marginRight: '10px' }}></i>
+        <b>{item.title}:</b>
+      </h5>
+      <p style={{ color: '#FFFFFF', fontSize: '16px', marginTop: '10px' }}>{item.desc}</p>
+    </div>
+  ))}
+</div>
+
+{/* Add Media Queries */}
+<style>
+  {`
+    @media (max-width: 768px) {
+      .about-content {
+        text-align: center;
+        padding: 20px;
+      }
+      .about-content h5 {
+        text-align: center;
+      }
+    }
+  `}
+</style>
+
+
+
+
+{/* Left Image Section */}
+<div
     style={{
       flex: 1,
       display: 'flex',
-      justifyContent: 'flex-start', // Align image to the left
-      paddingRight: '30px', // Add space between image and text
+      justifyContent: 'center', // Center image for mobile
+      paddingRight: '30px',
+      
+      paddingTop:'150px', // Space when stacked
+       backgroundColor:'black'
     }}
   >
     <img
       src={aboutUsImage}
       alt="About Us"
-      className="about-image" // Add the class for applying hover effect
+      className="about-image"
       style={{
-        width: '80%', // Adjust the image width
-        maxHeight: '500px', // Set max height if needed
-        objectFit: 'cover', // Ensure the image scales properly
-        borderRadius: '10px', // Optional: Rounded corners
+       
+        objectFit: 'cover',
+        borderRadius: '10px',
         marginTop: '-1.4cm',
-        transition: 'transform 0.3s ease-in-out', // Smooth transition for the zoom effect
+        transition: 'transform 0.3s ease-in-out',
+        display: 'block',
+        backgroundColor:'black'
       }}
     />
   </div>
 
-  {/* Right Content Section */}
-  <div
-    style={{
-      flex: 1,
-      display: 'flex',
-      flexDirection: 'column', // Stack text vertically
-      justifyContent: 'center', // Align text in the center of its container
-      textAlign: 'left', // Align text to the left
-      paddingLeft: '30px', // Add padding between text and image
-      marginLeft: '-5cm', // Move text 2cm to the left
-      marginTop: '-1cm', // Move text 2cm upwards
-    }}
-  >
-    <h3  style={{ fontWeight: '700' }}>About Us</h3>
-    <p>
-      We specialize in innovative web solutions, AI, and custom software
-      development. Our team works closely with clients to deliver tailored
-      solutions that meet your unique business needs and drive growth.
-    </p>
-    <h4 style={{ fontWeight: '700' }}>What Sets Us Apart</h4>
-    <ul>
-      <li>
-        <i
-          className="fas fa-fire"
-          style={{ marginRight: '10px', marginTop: '10px' }}
-        ></i>
-        <b>Interest-Driven:</b> We are fueled by genuine curiosity and a deep
-        interest in the fields we work in, always striving to stay ahead of
-        trends and innovations.
-      </li>
-      <li>
-        <i
-          className="fas fa-fire"
-          style={{ marginRight: '10px', marginTop: '10px' }}
-        ></i>
-        <b>Collaborative Spirit:</b> Our team is united by the ability to
-        collaborate effectively, fostering an environment where ideas are
-        shared, and learning is constant.
-      </li>
-      <li>
-        <i
-          className="fas fa-fire"
-          style={{ marginRight: '10px', marginTop: '10px' }}
-        ></i>
-        <b>Problem Solvers:</b> Whether it's building intuitive websites,
-        developing AI-based solutions, or automating tasks, we focus on
-        delivering practical solutions that simplify complex challenges.
-      </li>
-      <li>
-        <i
-          className="fas fa-fire"
-          style={{ marginRight: '10px', marginTop: '10px' }}
-        ></i>
-        <b>Commitment to Quality:</b> We aim for excellence in every project,
-        ensuring that our solutions not only meet the requirements but also
-        provide long-term value to clients.
-      </li>
-      <li>
-        <i
-          className="fas fa-fire"
-          style={{ marginRight: '10px', marginTop: '10px' }}
-        ></i>
-        <b>Adaptability:</b> With diverse skills and a commitment to learning,
-        we quickly adapt to new tools, frameworks, and technologies, delivering
-        cutting-edge solutions.
-      </li>
-    </ul>
-  </div>
-</section>
+{/* Add Media Queries */}
+<style>
+  {`
+    @media (max-width: 768px) {
+      #about-us {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 10px;
+      }
+      #about-us div {
+        padding: 0;
+        margin: 10px 0;
+      }
+      .about-image {
+        max-width: 90%;
+        margin-top: 0;
+      }
+    }
+  `}
+</style>
+
 
 {/* CSS for hover effect on images */}
 <style>{`
@@ -483,22 +497,29 @@ const App = () => {
 
 
 
+
       {/* what we do section starts here */}
 
       <section
   id="what-we-do"
   style={{
-    padding: "60px 20px",
-    fontFamily: "Roboto, sans-serif",
-    backgroundColor: "#f9f9f9",
-    textAlign: "center",
+    minHeight: "100vh",
+    backgroundColor: "#000", // Changed background to black
+    padding: "50px 8vw",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    fontFamily: "'Mono Sans', sans-serif",
+    textAlign: "left",
+    color: "#fff", // Changed text color to white
+    boxSizing: "border-box",
   }}
 >
   <div style={{ marginBottom: "40px" }}>
-    <h3 style={{ fontWeight: "700", marginBottom: "20px", color: "#333" }}>
+    <h3 style={{ fontWeight: "700", marginBottom: "20px", color: "#A0FF62" }}>
       What We Do
     </h3>
-    <p style={{ fontSize: "1.2em", color: "#555", maxWidth: "700px", margin: "0 auto" }}>
+    <p style={{ fontSize: "1.2em", color: "#FFFFFF", maxWidth: "700px", margin: "0 auto" }}>
       At <strong>BrookBytes</strong>, we are dedicated to transforming businesses with cutting-edge 
       technology. Our expertise spans across web development, AI-driven automation, and seamless 
       cloud solutions—helping you innovate, optimize, and scale efficiently.
@@ -511,6 +532,7 @@ const App = () => {
       gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
       gap: "20px",
       padding: "0 20px",
+      background : "black"
     }}
   >
     {[ 
@@ -522,7 +544,7 @@ const App = () => {
       <div
         key={index}
         style={{
-          backgroundColor: "white",
+          backgroundColor: "BALCK",
           padding: "20px",
           borderRadius: "10px",
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
@@ -533,8 +555,8 @@ const App = () => {
         onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
       >
         <i className={service.icon} style={{ fontSize: "40px", color: "#A0FF62", marginBottom: "15px" }}></i>
-        <h4 style={{ fontWeight: "700", marginBottom: "10px", color: "#222" }}>{service.title}</h4>
-        <p style={{ color: "#555" }}>{service.desc}</p>
+        <h4 style={{ fontWeight: "700", marginBottom: "10px", color: "#FFFFFF" }}>{service.title}</h4>
+        <p style={{ color: "#FFFFFF" }}>{service.desc}</p>
       </div>
     ))}
   </div>
@@ -548,12 +570,12 @@ const App = () => {
   id="why-choose-us"
   style={{
     padding: '80px 20px',
-    backgroundColor: '#fff',
+    backgroundColor: "#000", // Changed background to black
     fontFamily: 'Roboto, sans-serif',
   }}
 >
   <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-    <h2 style={{ fontWeight: '700', fontSize: '2.5em' }}>Why Choose Our Solutions?</h2>
+    <h2 style={{ fontWeight: '700', fontSize: '2.5em',color :'#A0FF62' }}>Why Choose Our Solutions?</h2>
   </div>
   <div
     style={{
@@ -567,7 +589,7 @@ const App = () => {
     {/* Provide Superior Online Experience */}
     <div
       style={{
-        backgroundColor: '#f9f9f9',
+        backgroundColor: '#000',
         padding: '20px',
         borderRadius: '10px',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
@@ -577,10 +599,10 @@ const App = () => {
       className="benefit-card"
     >
       <i className="fas fa-user-check" style={{ fontSize: '3em', color: '#A0FF62', marginBottom: '15px' }}></i>
-      <h4 style={{ fontWeight: '700', fontSize: '1.5em', marginBottom: '10px' }}>
+      <h4 style={{ fontWeight: '700', fontSize: '1.5em', marginBottom: '10px',color:'#FFFFFF', }}>
         Provide a Superior Online Experience
       </h4>
-      <p style={{ fontSize: '1em', color: '#555' }}>
+      <p style={{ fontSize: '1em', color: '#FFFFFF' }}>
         Customers expect performance, convenience, and availability from our platforms, even during peak activity.
       </p>
       <a
@@ -600,7 +622,7 @@ const App = () => {
     {/* Strengthen the Security Posture */}
     <div
       style={{
-        backgroundColor: '#f9f9f9',
+        backgroundColor: '#000',
         padding: '20px',
         borderRadius: '10px',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
@@ -613,10 +635,10 @@ const App = () => {
         className="fas fa-shield-alt"
         style={{ fontSize: '3em', color: '#4caf50', marginBottom: '15px' }}
       ></i>
-      <h4 style={{ fontWeight: '700', fontSize: '1.5em', marginBottom: '10px' }}>
+      <h4 style={{ fontWeight: '700', fontSize: '1.5em', marginBottom: '10px',color:'#FFFFFF' }}>
         Strengthen the Security Posture
       </h4>
-      <p style={{ fontSize: '1em', color: '#555' }}>
+      <p style={{ fontSize: '1em', color: '#FFFFFF' }}>
         Manage multiple security and networking services from a single, unified solution.
       </p>
       <a
@@ -636,7 +658,7 @@ const App = () => {
     {/* Improve Agility and Lower Costs */}
     <div
       style={{
-        backgroundColor: '#f9f9f9',
+        backgroundColor: '#000',
         padding: '20px',
         borderRadius: '10px',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
@@ -649,10 +671,10 @@ const App = () => {
         className="fas fa-chart-line"
         style={{ fontSize: '3em', color: '#007bff', marginBottom: '15px' }}
       ></i>
-      <h4 style={{ fontWeight: '700', fontSize: '1.5em', marginBottom: '10px' }}>
+      <h4 style={{ fontWeight: '700', fontSize: '1.5em', marginBottom: '10px',color:'#FFFFFF' }}>
         Improve Agility and Lower Operational Costs
       </h4>
-      <p style={{ fontSize: '1em', color: '#555' }}>
+      <p style={{ fontSize: '1em', color: '#FFFFFF' }}>
         Replacing legacy systems with modern cloud-based solutions drives innovation and efficiency.
       </p>
       <a
@@ -726,31 +748,31 @@ const App = () => {
 
 
 
-<section id="our-plans" className="pricing">
+<section id="our-plans" className="pricing" style={{backgroundColor:'#000'}}>
   <div className="section-header">
-    <h2>Choose the Right Plan for Your Needs</h2>
-    <p>Flexible solutions to fit your business requirements.</p>
+    <h2 style={{color:' #A0FF62'}}>Choose the Right Plan for Your Needs</h2>
+    <p style={{color:' #FFFFFF'}}>Flexible solutions to fit your business requirements.</p>
   </div>
 
-  <div className="pricing-cards">
+  <div className="pricing-cards"  >
     {/* Personalized Web Development */}
-    <div className="pricing-card">
-      <h3>Personalized Web Development</h3>
-      <p>Custom websites tailored to your business needs, ensuring a seamless user experience and a strong online presence.</p>
+    <div className="pricing-card" style={{color:' #A0FF62',backgroundColor:'black'}}>
+      <h3 style={{color:'rgb(255, 255, 255)'}}>Personalized Web Development</h3>
+      <p style={{color:' #FFFFFF'}}>Custom websites tailored to your business needs, ensuring a seamless user experience and a strong online presence.</p>
       <a href="https://www.linkedin.com/company/brookbytes-in/" target="_blank" rel="noopener noreferrer">Contact Us</a>
     </div>
 
     {/* AI-Powered Chatbots */}
-    <div className="pricing-card">
-      <h3>AI-Powered Chatbots</h3>
-      <p>Revolutionize customer interactions with AI-driven chatbots that provide instant support and improve user engagement.</p>
+    <div className="pricing-card" style={{color:' #A0FF62',backgroundColor:'black'}}>
+      <h3 style={{color:'rgb(255, 255, 255)'}}>AI-Powered Chatbots</h3>
+      <p style={{color:' #FFFFFF'}}>Revolutionize customer interactions with AI-driven chatbots that provide instant support and improve user engagement.</p>
       <a href="https://www.linkedin.com/company/brookbytes-in/" target="_blank" rel="noopener noreferrer">Contact Us</a>
     </div>
 
     {/* Content Creation & Typing Services */}
-    <div className="pricing-card">
-      <h3>Content Creation & Typing Services</h3>
-      <p>Professional content writing and efficient typing services to help businesses communicate effectively and streamline documentation needs.</p>
+    <div className="pricing-card" style={{color:' #A0FF62',backgroundColor:'black'}}>
+      <h3 style={{color:'rgb(255, 255, 255)'}}>Content Creation & Typing Services</h3>
+      <p style={{color:' #FFFFFF'}}>Professional content writing and efficient typing services to help businesses communicate effectively and streamline documentation needs.</p>
       <a href="https://www.linkedin.com/company/brookbytes-in/" target="_blank" rel="noopener noreferrer" >Contact Us</a>
     </div>
   </div>
@@ -873,12 +895,12 @@ const App = () => {
   style={{
     padding: '60px 20px',
     fontFamily: 'Roboto, sans-serif',
-    backgroundColor: '#f9f9f9', // Light background for contrast
+    backgroundColor: '#000', // Light background for contrast
   }}
 >
   <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-    <h3 style={{ fontWeight: '700', marginBottom: '20px' }}>Contact Us</h3>
-    <p style={{ fontSize: '1.1em', color: '#555' }}>
+    <h3 style={{ fontWeight: '700', marginBottom: '20px',color:'#A0FF62' }}>Contact Us</h3>
+    <p style={{ fontSize: '1.1em', color: '#FFFFFF' }}>
       Feel free to reach out to us through any of the following platforms:
     </p>
   </div>
@@ -895,7 +917,7 @@ const App = () => {
     {/* Facebook Card */}
     <div
       style={{
-        backgroundColor: 'white',
+        backgroundColor: 'black',
         padding: '20px',
         borderRadius: '10px',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
@@ -911,8 +933,8 @@ const App = () => {
           style={{ fontSize: '40px', color: '#A0FF62', marginBottom: '15px' }}
         ></i>
       </a>
-      <h4 style={{ fontWeight: '700', marginBottom: '10px' }}>Facebook</h4>
-      <p style={{ color: '#555' }}>
+      <h4 style={{ fontWeight: '700', marginBottom: '10px',color:'white' }}>Facebook</h4>
+      <p style={{ color: 'white' }}>
         Connect with us on Facebook for updates and support.
       </p>
     </div>
@@ -920,7 +942,7 @@ const App = () => {
     {/* Instagram Card */}
     <div
       style={{
-        backgroundColor: 'white',
+        backgroundColor: 'black',
         padding: '20px',
         borderRadius: '10px',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
@@ -936,8 +958,8 @@ const App = () => {
           style={{ fontSize: '40px', color: '#A0FF62', marginBottom: '15px' }}
         ></i>
       </a>
-      <h4 style={{ fontWeight: '700', marginBottom: '10px' }}>Instagram</h4>
-      <p style={{ color: '#555' }}>
+      <h4 style={{ fontWeight: '700', marginBottom: '10px',color:'white' }}>Instagram</h4>
+      <p style={{ color: 'white' }}>
         Stay connected with us through Instagram for visuals and updates.
       </p>
     </div>
@@ -945,7 +967,7 @@ const App = () => {
     {/* LinkedIn Card */}
     <div
       style={{
-        backgroundColor: 'white',
+        backgroundColor: 'black',
         padding: '20px',
         borderRadius: '10px',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
@@ -961,8 +983,8 @@ const App = () => {
           style={{ fontSize: '40px', color: '#A0FF62', marginBottom: '15px' }}
         ></i>
       </a>
-      <h4 style={{ fontWeight: '700', marginBottom: '10px' }}>LinkedIn</h4>
-      <p style={{ color: '#555' }}>
+      <h4 style={{ fontWeight: '700', marginBottom: '10px',color:'white' }}>LinkedIn</h4>
+      <p style={{ color: 'white' }}>
         Connect with us professionally on LinkedIn.
       </p>
     </div>
@@ -970,7 +992,7 @@ const App = () => {
     {/* Email Card */}
     <div
       style={{
-        backgroundColor: 'white',
+        backgroundColor: 'black',
         padding: '20px',
         borderRadius: '10px',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
@@ -986,8 +1008,8 @@ const App = () => {
           style={{ fontSize: '40px', color: '#A0FF62', marginBottom: '15px' }}
         ></i>
       </a>
-      <h4 style={{ fontWeight: '700', marginBottom: '10px' }}>Email</h4>
-      <p style={{ color: '#555' }}>
+      <h4 style={{ fontWeight: '700', marginBottom: '10px',color:'white' }}>Email</h4>
+      <p style={{ color: 'white' }}>
         Send us an email for any inquiries or support.
       </p>
     </div>
@@ -1038,7 +1060,7 @@ const App = () => {
 <footer
 id="our-services"
   style={{
-    backgroundColor: "#333",
+    backgroundColor: "#000",
     color: "#fff",
     padding: "40px 20px",
     textAlign: "center",
@@ -1097,7 +1119,7 @@ id="our-services"
       <i className="fa-brands fa-instagram"></i>
     </a>
     <a
-      href="https://wa.me/yourphonenumber"
+      href="https://wa.me/6374668805"
       target="_blank"
       rel="noopener noreferrer"
       style={{
